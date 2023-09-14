@@ -17,9 +17,11 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 15s
   config:
-    import: "optional:configserver:"
+    import: ""
+    #import: "optional:configserver:"
   cloud:
     config:
+      enabled: false
       uri: http://localhost:8888
       request-connection-timeout: 5000
       request-read-timeout: 5000
@@ -32,13 +34,41 @@ spring:
   datasource:
     username: user
     password: password
-    url: jdbc:postgresql://localhost:5433/polardb_catalog
+    url: jdbc:postgresql://localhost:5432/polardb_catalog
     hikari:
       connection-timeout: 2000
       maximum-pool-size: 5
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/PolarBookshop
+
+info:
+  system: Polar Bookshop
 
 management:
   endpoints:
     web:
       exposure:
-        include: refresh
+        include: flyway, health, heapdump, info, prometheus
+  info:
+    env:
+      enabled: true
+    java:
+      enabled: true
+    os:
+      enabled: true
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+      probes:
+        enabled: true
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+logging:
+  pattern:
+    level: "%5p [${spring.application.name},%X{trace_id},%X{span_id}]"
