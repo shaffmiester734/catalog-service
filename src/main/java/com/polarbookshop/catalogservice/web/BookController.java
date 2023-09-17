@@ -14,6 +14,8 @@ import javax.validation.Valid;
 public class BookController {
     private static final Logger log = LoggerFactory.getLogger(BookController.class);
 
+    // TODO: remove me
+
     private final BookService bookService;
 
     public BookController(BookService bookService) {
