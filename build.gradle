@@ -7,6 +7,10 @@ plugins {
 group = 'com.shaffersoft'
 version = '0.0.1-SNAPSHOT'
 
+ext {
+	wiremockVersion = '3.8.1'
+}
+
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
@@ -18,10 +22,11 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter-web'
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.wiremock.integrations:wiremock-spring-boot:3.8.1'
-	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation "org.springframework.boot:spring-boot-starter-web"
+
+	testImplementation "org.springframework.boot:spring-boot-starter-test"
+	testImplementation "org.wiremock.integrations:wiremock-spring-boot:${wiremockVersion}"
+	testRuntimeOnly "org.junit.platform:junit-platform-launcher"
 }
 
 tasks.named('test') {

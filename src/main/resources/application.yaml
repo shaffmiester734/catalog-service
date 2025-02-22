@@ -3,4 +3,4 @@ spring:
     name: git-data-retriever
 api:
   client:
-    base-url: http://localhost:${wiremock.server.port}
+    base-url: https://api.github.com

@@ -1,14 +1,11 @@
-package com.shaffersoft.git_data_retriever.model;
+package com.shaffersoft.git.retriever.model;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public record GitData(
-        String login,
+public record GitHubRepoEntity(
         String name,
-        String avatarUrl,
-        String location,
-        String url,
-        String createdAt) {
+        String htmlUrl
+) {
 }

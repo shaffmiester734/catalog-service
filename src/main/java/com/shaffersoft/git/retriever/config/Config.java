@@ -1,4 +1,4 @@
-package com.shaffersoft.git_data_retriever;
+package com.shaffersoft.git.retriever.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
