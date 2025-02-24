@@ -1,6 +1,18 @@
 spring:
   application:
     name: git-data-retriever
+  cache:
+    type: caffeine
+    caffeine:
+      spec: maximumSize=1000,expireAfterWrite=5m
+
+management:
+  server:
+    port: 8090
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,caches,loggers,logfile
 api:
   client:
     base-url: https://api.github.com

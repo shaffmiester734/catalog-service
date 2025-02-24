@@ -8,7 +8,7 @@ public interface GitFetcherService {
     /**
      * Collects data about a GitHub users data from github
      * @param username GitHub username you want to gather data for
-     * @return {@link GitHubUserDTO}
+     * @return {@link GitHubUserDTO} containing a users formatted data
      */
     GitHubUserDTO fetchGitData(String username) throws UsernameNotFoundException;
 }

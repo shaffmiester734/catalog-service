@@ -17,7 +17,6 @@ import java.util.List;
 
 @Service
 public class GitHubRestApiFetcherService implements GitFetcherService {
-
     private static final Logger LOGGER = LoggerFactory.getLogger(GitHubRestApiFetcherService.class);
 
     private final RestClient restClient;
@@ -33,7 +32,7 @@ public class GitHubRestApiFetcherService implements GitFetcherService {
         GitHubUserEntity userData = restClient.get()
                 .uri("/users/{username}", username)
                 .retrieve()
-                .onStatus(HttpStatus.NOT_FOUND::equals , (request, response) -> {
+                .onStatus(HttpStatus.NOT_FOUND::equals, (request, response) -> {
                     throw new UsernameNotFoundException(username);
                 })
                 .body(GitHubUserEntity.class);

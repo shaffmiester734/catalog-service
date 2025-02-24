@@ -13,7 +13,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 class GitConversionUtilsTest {
 
     @Test
-    public void convertDateFormatRonvertsAValid8601String(){
+    public void convertDateFormatConvertsAValid8601String(){
         String convertedDate = GitConversionUtils.convertDateFormat("2011-01-25T18:44:36Z");
         assertThat(convertedDate).isEqualTo("2011-01-25 18:44:36");
     }

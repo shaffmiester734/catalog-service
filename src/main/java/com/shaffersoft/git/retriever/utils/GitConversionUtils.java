@@ -36,7 +36,7 @@ public class GitConversionUtils {
                 gitHubRepoDTOS);
     }
 
-    public static String convertDateFormat(String ISO8601String) {
+    static String convertDateFormat(String ISO8601String) {
         if (ISO8601String == null) {
             return null;
         }
